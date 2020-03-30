@@ -1,0 +1,11 @@
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.deps.json
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.runtimeconfig.json
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.runtimeconfig.dev.json
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.dll
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.pdb
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.csprojAssemblyReference.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.csproj.CoreCompileInputs.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.AssemblyInfoInputs.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.AssemblyInfo.cs
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.dll
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.pdb
