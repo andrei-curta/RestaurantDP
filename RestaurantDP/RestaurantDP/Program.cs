@@ -1,4 +1,6 @@
 ﻿using System;
+using RestaurantDP.Decorator;
+using RestaurantDP.Factory;
 
 namespace RestaurantDP
 {
@@ -16,11 +18,9 @@ namespace RestaurantDP
             Console.WriteLine("\nOrdered burgers:");
             waiter.DisplayBurgers();
 
-            waiter.SellBurger(0);
+            waiter.SellBurger(1);
             Console.WriteLine("\nAfter selling first burger.");
             waiter.DisplayBurgers();
-
-
         }
     }
 }

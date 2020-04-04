@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using RestaurantDP.Factory;
 
-namespace RestaurantDP
+namespace RestaurantDP.Decorator
 {
     class DrinkDecorator : BurgerDecorator
     {

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RestaurantDP.Decorator;
 
-namespace RestaurantDP
+namespace RestaurantDP.Factory
 {
     public class Waiter
     {

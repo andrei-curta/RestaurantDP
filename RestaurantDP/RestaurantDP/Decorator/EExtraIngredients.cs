@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RestaurantDP
+﻿namespace RestaurantDP.Decorator
 {
     public enum EExtraIngredients
     {

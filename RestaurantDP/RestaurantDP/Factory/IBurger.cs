@@ -1,4 +1,6 @@
-﻿namespace RestaurantDP
+﻿using RestaurantDP.Decorator;
+
+namespace RestaurantDP.Factory
 {
     public interface IBurger
     {

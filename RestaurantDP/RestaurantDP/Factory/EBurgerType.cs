@@ -1,4 +1,4 @@
-﻿namespace RestaurantDP
+﻿namespace RestaurantDP.Factory
 {
     public enum EBurgerType
     {
