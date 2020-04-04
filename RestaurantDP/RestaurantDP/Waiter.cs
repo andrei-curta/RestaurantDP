@@ -6,16 +6,16 @@ namespace RestaurantDP
 {
     public class Waiter
     {
-        private readonly Dictionary<int, Burger> _orderedBurgers;
-        private readonly Dictionary<int, Burger> _premadeBurgers;   //???
+        private readonly Dictionary<int, BurgerDecorator> _orderedBurgers;
+        private readonly Dictionary<int, BurgerDecorator> _premadeBurgers;   //???
 
         public Waiter()
         {
-            _orderedBurgers = new Dictionary<int, Burger>();
-            _premadeBurgers = new Dictionary<int, Burger>();
+            _orderedBurgers = new Dictionary<int, BurgerDecorator>();
+            _premadeBurgers = new Dictionary<int, BurgerDecorator>();
         }
 
-        public int OrderBurger(string name, float price, EBurgerType burgerType)
+        public int OrderBurger(string name, float price, EBurgerType burgerType, EExtraIngredients extraIngredients = EExtraIngredients.BASIC)
         {
             Kitchen kitchen;
             switch (burgerType)
@@ -23,15 +23,21 @@ namespace RestaurantDP
                 case EBurgerType.Classic:
                 {
                     kitchen = new ClassicBurgerFactory();
-                    _orderedBurgers.Add(Kitchen.LastId, kitchen.GetBurger(name, price));
-                    Console.WriteLine($"Classic burger was ordered : {name}, {price} => ID {Kitchen.LastId}");
+                    Burger burger = kitchen.GetBurger(name, price);
+                    BurgerDecorator decoratedBurger = AddExtraIngredients(burger, extraIngredients);
+
+                    _orderedBurgers.Add(Kitchen.LastId, decoratedBurger);
+                    Console.WriteLine($"Classic burger was ordered : {decoratedBurger.ToString()} => ID {Kitchen.LastId}");
                     return Kitchen.LastId;
                 }
                 case EBurgerType.Deluxe:
                 {
                     kitchen = new DeluxeBurgerFactory();
-                    _orderedBurgers.Add(Kitchen.LastId, kitchen.GetBurger(name, price));
-                    Console.WriteLine($"Deluxe burger was ordered : {name}, {price} => ID {Kitchen.LastId}");
+                    Burger burger = kitchen.GetBurger(name, price);
+                    BurgerDecorator decoratedBurger = AddExtraIngredients(burger, extraIngredients);
+
+                    _orderedBurgers.Add(Kitchen.LastId, decoratedBurger);
+                    Console.WriteLine($"Deluxe burger was ordered : {decoratedBurger.ToString()} => ID {Kitchen.LastId}");
                     return Kitchen.LastId;
                 }
                 default:
@@ -39,9 +45,34 @@ namespace RestaurantDP
             }
         }
 
-        public Burger SellBurger(int id)
+        private BurgerDecorator AddExtraIngredients(IBurger burger, EExtraIngredients extraIngredients)
         {
-            var burgerToBeSold = _orderedBurgers.FirstOrDefault(car => car.Key.Equals(id)).Value;
+            switch (extraIngredients)
+            {
+                case EExtraIngredients.BASIC:
+                {
+                    return new BasicDecorator(burger);
+                }
+                case (EExtraIngredients.DRINK):
+                {
+                    return new DrinkDecorator(burger);
+                }
+                case (EExtraIngredients.SAUCE):
+                {
+                    return new SauceDecorator(burger);
+                }
+                case (EExtraIngredients.VEGETABLE):
+                {
+                    return new VegetableDecorator(burger);
+                }
+                default:
+                    return null;
+            }
+        }
+
+        public BurgerDecorator SellBurger(int id)
+        {
+            var burgerToBeSold = _orderedBurgers.FirstOrDefault(burger => burger.Key.Equals(id)).Value;
             if (burgerToBeSold == null)
             {
                 Console.WriteLine("This burger does not exists.");
