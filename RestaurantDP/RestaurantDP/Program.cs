@@ -11,6 +11,7 @@ namespace RestaurantDP
             waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
             waiter.OrderBurger(Constants.DeluxeBurgerName, Constants.DeluxeBurgerPrice, EBurgerType.Deluxe);
             waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
+            waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic, EExtraIngredients.DRINK);
 
             Console.WriteLine("\nOrdered burgers:");
             waiter.DisplayBurgers();
@@ -18,6 +19,8 @@ namespace RestaurantDP
             waiter.SellBurger(0);
             Console.WriteLine("\nAfter selling first burger.");
             waiter.DisplayBurgers();
+
+
         }
     }
 }
