@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Facultate\\Facultate3\\Sem2\\Sabloane de proiectare\\Proiect\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj": {}
+    "C:\\Faculty\\Design_Patterns\\Proiect_Hamburger\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj": {}
   },
   "projects": {
-    "D:\\Facultate\\Facultate3\\Sem2\\Sabloane de proiectare\\Proiect\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj": {
+    "C:\\Faculty\\Design_Patterns\\Proiect_Hamburger\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\Facultate3\\Sem2\\Sabloane de proiectare\\Proiect\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj",
+        "projectUniqueName": "C:\\Faculty\\Design_Patterns\\Proiect_Hamburger\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj",
         "projectName": "RestaurantDP",
-        "projectPath": "D:\\Facultate\\Facultate3\\Sem2\\Sabloane de proiectare\\Proiect\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj",
-        "packagesPath": "C:\\Users\\Larisa\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\Facultate3\\Sem2\\Sabloane de proiectare\\Proiect\\RestaurantDP\\RestaurantDP\\RestaurantDP\\obj\\",
+        "projectPath": "C:\\Faculty\\Design_Patterns\\Proiect_Hamburger\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj",
+        "packagesPath": "C:\\Users\\AD073526\\.nuget\\packages\\",
+        "outputPath": "C:\\Faculty\\Design_Patterns\\Proiect_Hamburger\\RestaurantDP\\RestaurantDP\\RestaurantDP\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Larisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AD073526\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
