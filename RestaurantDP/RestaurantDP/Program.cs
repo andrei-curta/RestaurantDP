@@ -13,7 +13,7 @@ namespace RestaurantDP
             User u = new User();
 
             u.Name = "21";
-            u.Password = "123456789";
+            u.Password = "12345678";
 
 
             UserRepository repository = new UserRepository(new MyContext());

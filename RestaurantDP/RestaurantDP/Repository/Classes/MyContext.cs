@@ -16,7 +16,7 @@ namespace Repository
             if (!optionsBuilder.IsConfigured)
             {
                 //comentati si puneti al vostru
-                optionsBuilder.UseMySql("server=localhost;database=restaurant;uid=root;pwd=123456789;");
+                optionsBuilder.UseMySql("server=localhost;database=restaurant;uid=root;pwd=12345678;");
 
 
                 //optionsBuilder.UseMySql("Data Source=localhost:3306;Initial Catalog=restaurant;Username=root;Password=123456789");

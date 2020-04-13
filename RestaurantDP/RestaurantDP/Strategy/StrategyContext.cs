@@ -31,13 +31,13 @@ namespace RestaurantDP.Strategy
             Console.WriteLine("Price after offer: " + finalPrice);
         }
 
-        public IDiscountStrategy GetStrategy(EOfferType offerType)
+        public IDiscountStrategy GetStrategy(string offerType)
         {
-            if (offerType == EOfferType.Loyal)
+            if (offerType == "Loyal")
             {
                 return strategyContext[nameof(LoyaltyDicount)];
             }
-            else if(offerType == EOfferType.Student)
+            else if(offerType == "Student")
             {
                 return strategyContext[nameof(StudentDiscount)];
             }

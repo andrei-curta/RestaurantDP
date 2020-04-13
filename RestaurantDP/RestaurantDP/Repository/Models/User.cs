@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantDP.Strategy;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,6 +10,12 @@ namespace Repository
 {
     public class User
     {
+        public string Type
+        {
+            get;
+            set;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id
@@ -38,5 +45,7 @@ namespace Repository
         {
             return $"Id: {Id}\nName: {Name}";
         }
+
+
     }
 }
