@@ -19,15 +19,15 @@ D:\Facultate\Facultate3\Sem2\Sabloane de proiectare\Proiect\RestaurantDP\Restaur
 D:\Facultate\Facultate3\Sem2\Sabloane de proiectare\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.AssemblyInfo.cs
 D:\Facultate\Facultate3\Sem2\Sabloane de proiectare\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.dll
 D:\Facultate\Facultate3\Sem2\Sabloane de proiectare\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.pdb
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.deps.json
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.runtimeconfig.json
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.runtimeconfig.dev.json
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.dll
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.pdb
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.csprojAssemblyReference.cache
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.csproj.CoreCompileInputs.cache
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.AssemblyInfoInputs.cache
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.AssemblyInfo.cs
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.dll
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.pdb
-C:\Faculty\Design_Patterns\Proiect_Hamburger\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.genruntimeconfig.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.deps.json
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.runtimeconfig.json
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.runtimeconfig.dev.json
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.dll
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\RestaurantDP.pdb
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.csprojAssemblyReference.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.csproj.CoreCompileInputs.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.AssemblyInfoInputs.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.AssemblyInfo.cs
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.dll
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\obj\Debug\netcoreapp2.1\RestaurantDP.pdb
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\RestaurantDP\bin\Debug\netcoreapp2.1\appsettings.json

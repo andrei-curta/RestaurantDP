@@ -1,6 +1,8 @@
-﻿using System;
-using RestaurantDP.Decorator;
-using RestaurantDP.Factory;
+﻿using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Repository;
 
 namespace RestaurantDP
 {
@@ -8,27 +10,38 @@ namespace RestaurantDP
     {
         static void Main(string[] args)
         {
-            try
+            User u = new User();
+
+            u.Name = "21";
+            u.Password = "123456789";
+
+
+            UserRepository repository = new UserRepository(new MyContext());
+            repository.Insert(u);
+
+            var a =repository.GetAll();
+            foreach(var x in a)
             {
-                var waiter = new Waiter();
-
-                waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
-                waiter.OrderBurger(Constants.DeluxeBurgerName, Constants.DeluxeBurgerPrice, EBurgerType.Deluxe);
-                waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
-                waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic,
-                    EExtraIngredients.DRINK);
-
-                Console.WriteLine("\nOrdered burgers:");
-                waiter.DisplayBurgers();
-
-                waiter.SellBurger(1);
-                Console.WriteLine("\nAfter selling first burger.");
-                waiter.DisplayBurgers();
+                System.Console.WriteLine(x.ToString());
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+
+            //var waiter = new Waiter();
+
+            //waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
+            //waiter.OrderBurger(Constants.DeluxeBurgerName, Constants.DeluxeBurgerPrice, EBurgerType.Deluxe);
+            //waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
+            //waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic,
+            //    EExtraIngredients.DRINK);
+
+            //Console.WriteLine("\nOrdered burgers:");
+            //waiter.DisplayBurgers();
+
+            //waiter.SellBurger(1);
+            //Console.WriteLine("\nAfter selling first burger.");
+            //waiter.DisplayBurgers();
         }
+
+        
+
     }
 }

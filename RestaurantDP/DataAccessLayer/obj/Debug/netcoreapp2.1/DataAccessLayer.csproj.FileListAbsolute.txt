@@ -1,0 +1,11 @@
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\bin\Debug\netcoreapp2.1\DataAccessLayer.deps.json
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\bin\Debug\netcoreapp2.1\DataAccessLayer.dll
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\obj\Debug\netcoreapp2.1\DataAccessLayer.csproj.CoreCompileInputs.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\obj\Debug\netcoreapp2.1\DataAccessLayer.AssemblyInfoInputs.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\obj\Debug\netcoreapp2.1\DataAccessLayer.AssemblyInfo.cs
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\obj\Debug\netcoreapp2.1\DataAccessLayer.csprojAssemblyReference.cache
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\bin\Debug\netcoreapp2.1\DataAccessLayer.pdb
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\obj\Debug\netcoreapp2.1\DataAccessLayer.dll
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\obj\Debug\netcoreapp2.1\DataAccessLayer.pdb
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\bin\Debug\netcoreapp2.1\DataAccessLayer.runtimeconfig.json
+E:\Facultate\Anul_III\Sem_II\Design Patterns\Proiect\RestaurantDP\RestaurantDP\DataAccessLayer\bin\Debug\netcoreapp2.1\DataAccessLayer.runtimeconfig.dev.json
