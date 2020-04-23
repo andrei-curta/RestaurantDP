@@ -74,6 +74,10 @@
               "version": "[2.0.0, )",
               "autoReferenced": true
             },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
+            },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[3.1.1, )"

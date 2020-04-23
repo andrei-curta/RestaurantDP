@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ce5qu+0kY4iszqqDbxvjYGTS0zLthgEd4a2A1sQWeuDjVuZnvtBku67S9EB5MHlsVm0jB+WHeAyE7huTHjmtvg==",
+  "dgSpecHash": "IOcyCy11NruSKnhRzlq5KxzUYVkAx7/EfB9OV/GONwZiaJWKCOerl5MFn9TzdlEQXni2SWWWKJfz5rhrXMwyZw==",
   "success": true,
   "projectFilePath": "C:\\Faculty\\Design_Patterns\\Proiect_Hamburger\\RestaurantDP\\RestaurantDP\\RestaurantDP\\RestaurantDP.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\AD073526\\.nuget\\packages\\mysqlconnector\\0.61.0\\mysqlconnector.0.61.0.nupkg.sha512",
     "C:\\Users\\AD073526\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\AD073526\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\AD073526\\.nuget\\packages\\pdfsharp\\1.50.5147\\pdfsharp.1.50.5147.nupkg.sha512",
     "C:\\Users\\AD073526\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\3.1.1\\pomelo.entityframeworkcore.mysql.3.1.1.nupkg.sha512",
     "C:\\Users\\AD073526\\.nuget\\packages\\pomelo.jsonobject\\2.2.1\\pomelo.jsonobject.2.2.1.nupkg.sha512",
     "C:\\Users\\AD073526\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -135,10 +136,14 @@
   ],
   "logs": [
     {
-      "code": "Undefined",
+      "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Faculty\\Design_Patterns\\Proiect_Hamburger\\RestaurantDP\\RestaurantDP\\RestaurantDP\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Package 'PDFsharp 1.50.5147' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PDFsharp",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
     }
   ]
 }
