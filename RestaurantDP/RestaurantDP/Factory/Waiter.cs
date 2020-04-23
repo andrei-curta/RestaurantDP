@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Repository;
 using RestaurantDP.Decorator;
 using RestaurantDP.Flyweight;
+using RestaurantDP.Strategy;
 
 namespace RestaurantDP.Factory
 {
@@ -241,6 +242,14 @@ namespace RestaurantDP.Factory
             }
 
             float totalPrice = _userOrders[client].Sum(burger => burger.Price);
+
+            if(Enum.IsDefined(typeof(EOfferType), client.OfferType))
+            {
+                StrategyContext strategyContext = new StrategyContext(totalPrice);
+
+                totalPrice = (float) strategyContext.ApplyStrategy(client.OfferType);
+            }
+
             CashIn(totalPrice, GetMoneyType());
             GetTotalCash();
 

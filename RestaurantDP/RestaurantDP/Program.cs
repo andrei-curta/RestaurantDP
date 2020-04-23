@@ -13,14 +13,14 @@ namespace RestaurantDP
         {
             //User u = new User();
 
-            //u.Name = "21";
+            //u.Name = "Ben";
             //u.Password = "123456789";
-
+            //u.OfferType = Strategy.EOfferType.Student;
 
             UserRepository repository = new UserRepository(new MyContext());
             //repository.Insert(u);
 
-            var client = repository.GetByID(1);
+            var client = repository.GetByID(5);
 
 
             var waiter = new Waiter();
