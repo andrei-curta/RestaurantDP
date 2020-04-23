@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantDP.Strategy;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -34,9 +35,21 @@ namespace Repository
             set;
         }
 
+
+        public EOfferType OfferType
+        {
+            get;
+            set;
+        }
+
         public override string ToString()
         {
             return $"Id: {Id}\nName: {Name}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Id == ((User)obj).Id;
         }
     }
 }

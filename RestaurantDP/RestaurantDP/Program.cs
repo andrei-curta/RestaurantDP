@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
+using RestaurantDP.Factory;
 
 namespace RestaurantDP
 {
@@ -10,22 +11,21 @@ namespace RestaurantDP
     {
         static void Main(string[] args)
         {
-            User u = new User();
+            //User u = new User();
 
-            u.Name = "21";
-            u.Password = "123456789";
+            //u.Name = "21";
+            //u.Password = "123456789";
 
 
             UserRepository repository = new UserRepository(new MyContext());
-            repository.Insert(u);
+            //repository.Insert(u);
 
-            var a =repository.GetAll();
-            foreach(var x in a)
-            {
-                System.Console.WriteLine(x.ToString());
-            }
+            var client = repository.GetByID(1);
 
-            //var waiter = new Waiter();
+
+            var waiter = new Waiter();
+
+            waiter.GetUserOption(client);
 
             //waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
             //waiter.OrderBurger(Constants.DeluxeBurgerName, Constants.DeluxeBurgerPrice, EBurgerType.Deluxe);
@@ -40,8 +40,6 @@ namespace RestaurantDP
             //Console.WriteLine("\nAfter selling first burger.");
             //waiter.DisplayBurgers();
         }
-
-        
 
     }
 }
