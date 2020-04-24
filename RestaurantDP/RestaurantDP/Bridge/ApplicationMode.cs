@@ -38,7 +38,7 @@ namespace RestaurantDP.Bridge
 
         public void sendAction(string message)
         {
-            throw new NotImplementedException();
+            DisplayOption.sendAction(message);
         }
     }
 }

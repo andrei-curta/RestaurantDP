@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Repository;
+using RestaurantDP.Bridge;
 using RestaurantDP.Decorator;
 using RestaurantDP.Flyweight;
 using RestaurantDP.Strategy;
@@ -204,6 +205,7 @@ namespace RestaurantDP.Factory
                         _orderedBurgers.Add(Kitchen.LastId, decoratedBurger);
 
                         Console.WriteLine($"Deluxe burger was ordered : {decoratedBurger.ToString()} => ID {Kitchen.LastId}");
+                        ApplicationMode.Instance.sendAction($"Deluxe burger was ordered : {decoratedBurger.ToString()} => ID {Kitchen.LastId}");
                         Console.WriteLine("It will be serverd in a short time...");
                         ServeBurger(client, Kitchen.LastId);
 
@@ -232,6 +234,7 @@ namespace RestaurantDP.Factory
             _orderedBurgers.Remove(burgerId);
 
             Console.WriteLine($"A {burgerToBeSold.Name} was serverd to {client.Name}. Price: {burgerToBeSold.Price}\n");
+            ApplicationMode.Instance.sendAction($"A {burgerToBeSold.Name} was serverd to {client.Name}. Price: {burgerToBeSold.Price}\n");
             return burgerToBeSold;
         }
 
@@ -274,10 +277,10 @@ namespace RestaurantDP.Factory
                     break;
             }
 
+            ApplicationMode.Instance.sendAction($"Client {client.Name} paid order: {totalPrice}");
 
             List<BurgerDecorator> burgers = _userOrders[client];
             exporter.ExportFormatedData($"{client.Name}'s reciept", burgers, $"Total: {totalPrice}");
-
 
             _userOrders.Remove(client);
         }

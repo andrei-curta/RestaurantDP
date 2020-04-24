@@ -32,7 +32,6 @@ namespace RestaurantDP.Bridge
         public void sendAction(string action)
         {
             Console.WriteLine(action);
-            throw new NotImplementedException();
         }
     }
 }

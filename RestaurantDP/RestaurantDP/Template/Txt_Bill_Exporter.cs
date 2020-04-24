@@ -15,10 +15,8 @@ namespace RestaurantDP.Template
         public override void ExportData()
         {
             Console.WriteLine("Exporting the data to a txt file.");
-            Console.WriteLine($"{_fullPath}.{_extension}");
             System.IO.StreamWriter file = new System.IO.StreamWriter($"{_fullPath}.{_extension}");
             file.WriteLine(_data);
-
             file.Close();
         }
     }

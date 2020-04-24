@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
+using RestaurantDP.Bridge;
 using RestaurantDP.Factory;
 using RestaurantDP.Template;
 
@@ -15,6 +16,8 @@ namespace RestaurantDP
     {
         static void Main(string[] args)
         {
+            ApplicationMode.Instance.DisplayOption = FileMessage.Instance;
+            
             User u = new User();
 
             Receptioner receptioner = new Receptioner();
