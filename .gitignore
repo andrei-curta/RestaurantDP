@@ -233,3 +233,4 @@ UpgradeLog*.XML
 
 .idea/
 .vscode/settings.json
+*.cache
