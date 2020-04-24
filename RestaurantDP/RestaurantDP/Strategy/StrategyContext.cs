@@ -48,11 +48,11 @@ namespace RestaurantDP.Strategy
 
         public IDiscountStrategy GetStrategy(EOfferType offerType)
         {
-            if (offerType == "Loyal")
+            if (offerType == EOfferType.Loyal)
             {
                 return strategyContext[nameof(LoyaltyDicount)];
             }
-            else if(offerType == "Student")
+            else if(offerType == EOfferType.Student)
             {
                 return strategyContext[nameof(StudentDiscount)];
             }

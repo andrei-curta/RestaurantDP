@@ -10,11 +10,6 @@ namespace Repository
 {
     public class User
     {
-        public string Type
-        {
-            get;
-            set;
-        }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
