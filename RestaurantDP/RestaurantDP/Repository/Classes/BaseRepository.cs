@@ -9,7 +9,7 @@ namespace Repository
     public class BaseRepository<T> : IRepository<T> 
         where T : class
     {
-        private readonly MyContext _dbContext;
+        protected readonly MyContext _dbContext;
 
         public BaseRepository(MyContext dbContext)
         {
@@ -32,10 +32,12 @@ namespace Repository
            return _dbContext.Set<T>().Find(id);
         }
 
-        public void Insert(T entity)
+        public T Insert(T entity)
         {
             _dbContext.Add(entity);
             _dbContext.SaveChanges();
+
+            return entity;
         }
 
         public void Update(T item)

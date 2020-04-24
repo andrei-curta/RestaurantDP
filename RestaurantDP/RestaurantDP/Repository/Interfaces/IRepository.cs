@@ -8,7 +8,7 @@ namespace Repository
 {
      public interface IRepository<T>
     {
-        void Insert(T entity);
+        T Insert(T entity);
 
         void Update(T item);
 

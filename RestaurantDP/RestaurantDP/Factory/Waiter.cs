@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+using Repository;
 using RestaurantDP.Decorator;
 using RestaurantDP.Flyweight;
+using RestaurantDP.Strategy;
 
 namespace RestaurantDP.Factory
 {
     public class Waiter
     {
         private readonly Dictionary<int, BurgerDecorator> _orderedBurgers;
-        private readonly Dictionary<int, BurgerDecorator> _premadeBurgers;   //???
+        private readonly Dictionary<User, List<BurgerDecorator>> _userOrders;
         private readonly CashRegisterCoin _cashRegisterCoin;
         private readonly CashRegisterPaper _cashRegisterPaper;
         private readonly CashRegisterCard _cashRegisterCard;
@@ -17,7 +22,7 @@ namespace RestaurantDP.Factory
         public Waiter()
         {
             _orderedBurgers = new Dictionary<int, BurgerDecorator>();
-            _premadeBurgers = new Dictionary<int, BurgerDecorator>();
+            _userOrders = new Dictionary<User, List<BurgerDecorator>>();
             _cashRegisterCoin = new CashRegisterCoin();
             _cashRegisterPaper = new CashRegisterPaper();
             _cashRegisterCard = new CashRegisterCard();
@@ -43,9 +48,137 @@ namespace RestaurantDP.Factory
             }
         }
 
-        public int OrderBurger(string name, float price, EBurgerType burgerType, EExtraIngredients extraIngredients = EExtraIngredients.BASIC)
+
+        public void  GetUserOption(User client)
         {
+            while (true)
+            {
+                Console.WriteLine("How can I help you? \n" +
+                              "1 -> Place order");
+
+                if (_userOrders.ContainsKey(client))
+                {
+                    Console.WriteLine("2 -> Pay Reciept\n");
+                }
+                else
+                    Console.WriteLine();
+                
+                int intTemp = Convert.ToInt32(Console.ReadLine());
+                switch (intTemp)
+                {
+                    case 1:
+                        PlaceOrder(client);
+                        break;
+                    case 2:
+                        PayReceipt(client);
+                        return;
+                    default:
+                        Console.WriteLine("Invalid request");
+                        break;
+                }
+            }
+        }
+
+        private void PlaceOrder(User client)
+        {
+            int intTemp = 0;
+            EBurgerType eBurgerType = EBurgerType.Classic;
+
+            do
+            {
+                Console.WriteLine("What would you like to eat?: \n" +
+                              "1 -> ClassicBurger\n" +
+                              "2 -> Deluxe Burger\n");
+                intTemp = Convert.ToInt32(Console.ReadLine());
+                switch (intTemp)
+                {
+                    case 1:
+                        eBurgerType = EBurgerType.Classic;
+                        break;
+                    case 2:
+                        eBurgerType = EBurgerType.Deluxe;
+                        break;
+                    default:
+                        Console.WriteLine("We don't have that type of burger. Maybe try something from the menu?");
+                        break;
+                }
+            } while (intTemp != 1 && intTemp != 2);
+
+            Console.WriteLine("Excellent choice! Do you want to add something extra to the burger? \n" +
+                              "1 -> Yes\n" +
+                              "2 -> No\n");
+            intTemp = Convert.ToInt32(Console.ReadLine());
+
+
+            switch (intTemp)
+            {
+                case 1:
+                    Console.WriteLine("What kind of extra would you like? \n" +
+                                      "1 -> Drink\n" +
+                                      "2 -> Sauce\n" +
+                                      "3 -> Vegetable");
+
+                    int extraOption = 0;
+                    do
+                    {
+                        try
+                        {
+                            extraOption = Convert.ToInt32(Console.ReadLine());
+                            switch (extraOption)
+                            {
+                                case 1:
+                                    FulfillOrder(eBurgerType, client, EExtraIngredients.DRINK);
+                                    break;
+                                case 2:
+                                    FulfillOrder(eBurgerType, client, EExtraIngredients.SAUCE);
+                                    break;
+                                case 3:
+                                    FulfillOrder(eBurgerType, client, EExtraIngredients.VEGETABLE);
+                                    break;
+                                default:
+                                    Console.WriteLine("Sorry, we're not adding weird stuff to our burgers since the coronavirus outbreak");
+                                    break;
+                            }
+                        }
+                        catch(Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                    } while (intTemp != 1 && intTemp != 2 && intTemp != 3);
+
+                    break;
+                case 2:
+                    FulfillOrder(eBurgerType, client);
+                    break;
+                default:
+                    Console.WriteLine("I'll take that as a no.");
+                    FulfillOrder(eBurgerType, client);
+                    break;
+            }
+
+        } 
+
+        private int FulfillOrder(EBurgerType burgerType, User client, EExtraIngredients extraIngredients = EExtraIngredients.BASIC)
+        {
+
+            //todo: asta nu e chiar ok:
+            string name = "";
+            float price = 0;
+            if (burgerType == EBurgerType.Classic)
+            {
+                name = Constants.ClassicBurgerName;
+                price = Constants.ClassicBurgerPrice;
+            }
+
+            if (burgerType == EBurgerType.Deluxe)
+            {
+                name = Constants.DeluxeBurgerName;
+                price = Constants.DeluxeBurgerPrice;
+            }
+
             Kitchen kitchen;
+
+
             switch (burgerType)
             {
                 case EBurgerType.Classic:
@@ -55,9 +188,10 @@ namespace RestaurantDP.Factory
                         var decoratedBurger = AddExtraIngredients(burger, extraIngredients);
 
                         _orderedBurgers.Add(Kitchen.LastId, decoratedBurger);
-                        CashIn(decoratedBurger.Price, GetMoneyType());
-                        GetTotalCash();
                         Console.WriteLine($"Classic burger was ordered : {decoratedBurger.ToString()} => ID {Kitchen.LastId}");
+                        Console.WriteLine("It will be serverd in a short time...");
+                        ServeBurger(client, Kitchen.LastId);
+
                         return Kitchen.LastId;
                     }
                 case EBurgerType.Deluxe:
@@ -67,9 +201,11 @@ namespace RestaurantDP.Factory
                         var decoratedBurger = AddExtraIngredients(burger, extraIngredients);
 
                         _orderedBurgers.Add(Kitchen.LastId, decoratedBurger);
-                        CashIn(decoratedBurger.Price, GetMoneyType());
-                        GetTotalCash();
+
                         Console.WriteLine($"Deluxe burger was ordered : {decoratedBurger.ToString()} => ID {Kitchen.LastId}");
+                        Console.WriteLine("It will be serverd in a short time...");
+                        ServeBurger(client, Kitchen.LastId);
+
                         return Kitchen.LastId;
                     }
                 default:
@@ -77,17 +213,49 @@ namespace RestaurantDP.Factory
             }
         }
 
-        public BurgerDecorator SellBurger(int id)
+        private BurgerDecorator ServeBurger(User client, int burgerId)
         {
-            var burgerToBeSold = _orderedBurgers.FirstOrDefault(burger => burger.Key.Equals(id)).Value;
+            Thread.Sleep(2000);
+            var burgerToBeSold = _orderedBurgers.FirstOrDefault(burger => burger.Key.Equals(burgerId)).Value;
             if (burgerToBeSold == null)
             {
                 Console.WriteLine("This burger does not exists.");
                 return null;
             }
-            _orderedBurgers.Remove(id);
-            Console.WriteLine($"A burger was sold : {burgerToBeSold.Name}, {burgerToBeSold.Price}");
+
+            if (!_userOrders.ContainsKey(client))
+            {
+                _userOrders[client] = new List<BurgerDecorator>();
+            }
+            _userOrders[client].Add(_orderedBurgers[burgerId]);
+            _orderedBurgers.Remove(burgerId);
+
+            Console.WriteLine($"A {burgerToBeSold.Name} was serverd to {client.Name}. Price: {burgerToBeSold.Price}\n");
             return burgerToBeSold;
+        }
+
+        void PayReceipt(User client)
+        {
+            if (!_userOrders.ContainsKey(client))
+            {
+                Console.WriteLine("You have not ordered yet!");
+            }
+
+            float totalPrice = _userOrders[client].Sum(burger => burger.Price);
+
+            if(Enum.IsDefined(typeof(EOfferType), client.OfferType))
+            {
+                StrategyContext strategyContext = new StrategyContext(totalPrice);
+
+                totalPrice = (float) strategyContext.ApplyStrategy(client.OfferType);
+            }
+
+            CashIn(totalPrice, GetMoneyType());
+            GetTotalCash();
+
+            //todo: printare de bon
+
+            _userOrders.Remove(client);
         }
 
         public void DisplayBurgers()

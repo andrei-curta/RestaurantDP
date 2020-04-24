@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
+using RestaurantDP.Factory;
 
 namespace RestaurantDP
 {
@@ -10,38 +11,17 @@ namespace RestaurantDP
     {
         static void Main(string[] args)
         {
-            User u = new User();
 
-            u.Name = "21";
-            u.Password = "12345678";
+            Receptioner receptioner = new Receptioner();
 
+            User client = receptioner.GreetClient();
 
-            UserRepository repository = new UserRepository(new MyContext());
-            repository.Insert(u);
-
-            var a =repository.GetAll();
-            foreach(var x in a)
+            if (client != null)
             {
-                System.Console.WriteLine(x.ToString());
+                var waiter = new Waiter();
+                System.Console.WriteLine("<<Waiter arrives>>");
+                waiter.GetUserOption(client);
             }
-
-            //var waiter = new Waiter();
-
-            //waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
-            //waiter.OrderBurger(Constants.DeluxeBurgerName, Constants.DeluxeBurgerPrice, EBurgerType.Deluxe);
-            //waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic);
-            //waiter.OrderBurger(Constants.ClassicBurgerName, Constants.ClassicBurgerPrice, EBurgerType.Classic,
-            //    EExtraIngredients.DRINK);
-
-            //Console.WriteLine("\nOrdered burgers:");
-            //waiter.DisplayBurgers();
-
-            //waiter.SellBurger(1);
-            //Console.WriteLine("\nAfter selling first burger.");
-            //waiter.DisplayBurgers();
         }
-
-        
-
     }
 }
