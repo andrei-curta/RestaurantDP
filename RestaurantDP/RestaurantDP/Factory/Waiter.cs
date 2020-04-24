@@ -8,6 +8,7 @@ using Repository;
 using RestaurantDP.Decorator;
 using RestaurantDP.Flyweight;
 using RestaurantDP.Strategy;
+using RestaurantDP.Template;
 
 namespace RestaurantDP.Factory
 {
@@ -253,7 +254,30 @@ namespace RestaurantDP.Factory
             CashIn(totalPrice, GetMoneyType());
             GetTotalCash();
 
-            //todo: printare de bon
+            DataExporter exporter = null;
+
+            Console.WriteLine("In what format do you want your reciept? \n" +
+                              "1 -> txt\n" +
+                              "2 -> pdf\n");
+
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    exporter = new Txt_Bill_Exporter();
+                    break;
+                case 2:
+                    exporter = new PDF_Bill_Exporter();
+                    break;
+                default:
+                    exporter = new Txt_Bill_Exporter();
+                    break;
+            }
+
+
+            List<BurgerDecorator> burgers = _userOrders[client];
+            exporter.ExportFormatedData($"{client.Name}'s reciept", burgers, $"Total: {totalPrice}");
+
 
             _userOrders.Remove(client);
         }

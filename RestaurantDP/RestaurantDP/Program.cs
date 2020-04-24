@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
+using RestaurantDP.Factory;
 using RestaurantDP.Template;
 
 namespace RestaurantDP
@@ -12,18 +15,6 @@ namespace RestaurantDP
     {
         static void Main(string[] args)
         {
-            DataExporter exporter = null;
-
-            // Lets export the data to Excel file
-            exporter = new Txt_Bill_Exporter();
-            exporter.ExportFormatedData();
-
-            Console.WriteLine();
-
-            // Lets export the data to PDF file
-            exporter = new PDF_Bill_Exporter();
-            exporter.ExportFormatedData();
-
             User u = new User();
 
             Receptioner receptioner = new Receptioner();

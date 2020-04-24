@@ -7,16 +7,17 @@ namespace RestaurantDP.Template
 {
     class Txt_Bill_Exporter : DataExporter
     {
+        public Txt_Bill_Exporter()
+        {
+            _extension = "txt";
+        }
+
         public override void ExportData()
         {
-              Console.WriteLine("Exporting the data to a PDF file.");
-            string lines = "First line.\r\nSecond line.\r\nThird line.";
-
-            //cum adaug calea relativa?
-
-            System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\Faculty\\Design_Patterns\\Proiect_Hamburger\\RestaurantDP\\RestaurantDP\\RestaurantDP\\Template\\third" +
-                ".txt");
-            file.WriteLine(lines);
+            Console.WriteLine("Exporting the data to a txt file.");
+            Console.WriteLine($"{_fullPath}.{_extension}");
+            System.IO.StreamWriter file = new System.IO.StreamWriter($"{_fullPath}.{_extension}");
+            file.WriteLine(_data);
 
             file.Close();
         }

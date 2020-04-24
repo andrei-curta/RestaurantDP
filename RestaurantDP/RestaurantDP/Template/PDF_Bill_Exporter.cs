@@ -1,5 +1,6 @@
-﻿using PdfSharp.Drawing;
-using PdfSharp.Pdf;
+﻿using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,42 +12,36 @@ namespace RestaurantDP.Template
 {
     class PDF_Bill_Exporter : DataExporter
     {
-            public override void ExportData()
-            {
-                Console.WriteLine("Exporting the bill to a PDF file.");
+        public PDF_Bill_Exporter()
+        {
+            _extension = "pdf";
+        }
+
+        public override void ExportData()
+        {
+            Console.WriteLine("Exporting the bill to a PDF file.");
             try
             {
-                string line = null;
-                System.IO.TextReader readFile = new StreamReader("second.txt");
-                int yPoint = 0;
 
-                PdfDocument pdf = new PdfDocument();
-                pdf.Info.Title = "TXT to PDF";
-                PdfPage pdfPage = pdf.AddPage();
-                XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+                System.IO.FileStream fs = new FileStream($"{_fullPath}.{_extension}", FileMode.Create);
 
-                //Nu imi gaseste System.Drawning care ar trebui sa fie in References.
-               // XFont font = new XFont("Verdana", 20, XFontStyle.Regular);
+                // Create an instance of the document class which represents the PDF document itself.  
+                Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+                // Create an instance to the PDF file by creating an instance of the PDF   
+                // Writer class using the document and the filestrem in the constructor.  
 
-                while (true)
-                {
-                    line = readFile.ReadLine();
-                    if (line == null)
-                    {
-                        break; // TODO: might not be correct. Was : Exit While
-                    }
-                    else
-                    {
-                       // graph.DrawString(line, XFont font, XBrushes.Black, new XRect(40, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-                        yPoint = yPoint + 40;
-                    }
-                }
+                PdfWriter writer = PdfWriter.GetInstance(document, fs);
 
-                string pdfFilename = "txttopdf.pdf";
-                pdf.Save(pdfFilename);
-                readFile.Close();
-                readFile = null;
-                Process.Start(pdfFilename);
+                // Open the document to enable you to write to the document  
+                document.Open();
+                // Add a simple and wellknown phrase to the document in a flow layout manner  
+                document.Add(new Paragraph(_data));
+                // Close the document  
+                document.Close();
+                // Close the writer instance  
+                writer.Close();
+                // Always close open filehandles explicity  
+                fs.Close();
             }
             catch (Exception ex)
             {
