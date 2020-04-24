@@ -7,6 +7,7 @@ namespace RestaurantDP.Strategy
    public enum EOfferType
     {
         Loyal,
-        Student
+        Student,
+        Regular
     }
 }

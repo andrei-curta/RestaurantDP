@@ -26,20 +26,22 @@ namespace Repository
             set;
         }
 
-        [Required]
-        [StringLength(50, MinimumLength = 7)]
-        [DataType(DataType.Password)]
-        public string Password
-        {
-            get;
-            set;
-        }
-
 
         public EOfferType OfferType
         {
             get;
             set;
+        }
+
+        public User()
+        {
+                
+        }
+
+        public User(string name, EOfferType offerType = EOfferType.Regular)
+        {
+            Name = name;
+            OfferType = offerType;
         }
 
         public override string ToString()
