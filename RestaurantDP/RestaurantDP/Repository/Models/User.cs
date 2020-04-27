@@ -1,4 +1,5 @@
 ﻿using RestaurantDP.Strategy;
+using RestaurantDP.Visitor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,6 +11,8 @@ namespace Repository
 {
     public class User
     {
+        [NotMapped]
+        public Order Order { get; set; } = new Order();
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

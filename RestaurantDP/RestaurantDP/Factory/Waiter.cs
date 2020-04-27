@@ -10,13 +10,13 @@ using RestaurantDP.Decorator;
 using RestaurantDP.Flyweight;
 using RestaurantDP.Strategy;
 using RestaurantDP.Template;
+using RestaurantDP.Visitor;
 
 namespace RestaurantDP.Factory
 {
     public class Waiter
     {
         private readonly Dictionary<int, BurgerDecorator> _orderedBurgers;
-        private readonly Dictionary<User, List<BurgerDecorator>> _userOrders;
         private readonly CashRegisterCoin _cashRegisterCoin;
         private readonly CashRegisterPaper _cashRegisterPaper;
         private readonly CashRegisterCard _cashRegisterCard;
@@ -24,7 +24,6 @@ namespace RestaurantDP.Factory
         public Waiter()
         {
             _orderedBurgers = new Dictionary<int, BurgerDecorator>();
-            _userOrders = new Dictionary<User, List<BurgerDecorator>>();
             _cashRegisterCoin = new CashRegisterCoin();
             _cashRegisterPaper = new CashRegisterPaper();
             _cashRegisterCard = new CashRegisterCard();
@@ -58,7 +57,7 @@ namespace RestaurantDP.Factory
                 Console.WriteLine("How can I help you? \n" +
                               "1 -> Place order");
 
-                if (_userOrders.ContainsKey(client))
+                if (client.Order.Products.Count > 0)
                 {
                     Console.WriteLine("2 -> Pay Reciept\n");
                 }
@@ -162,8 +161,6 @@ namespace RestaurantDP.Factory
 
         private int FulfillOrder(EBurgerType burgerType, User client, EExtraIngredients extraIngredients = EExtraIngredients.BASIC)
         {
-
-            //todo: asta nu e chiar ok:
             string name = "";
             float price = 0;
             if (burgerType == EBurgerType.Classic)
@@ -226,11 +223,7 @@ namespace RestaurantDP.Factory
                 return null;
             }
 
-            if (!_userOrders.ContainsKey(client))
-            {
-                _userOrders[client] = new List<BurgerDecorator>();
-            }
-            _userOrders[client].Add(_orderedBurgers[burgerId]);
+            client.Order.AddProduct(_orderedBurgers[burgerId]);          
             _orderedBurgers.Remove(burgerId);
 
             Console.WriteLine($"A {burgerToBeSold.Name} was serverd to {client.Name}. Price: {burgerToBeSold.Price}\n");
@@ -240,12 +233,15 @@ namespace RestaurantDP.Factory
 
         void PayReceipt(User client)
         {
-            if (!_userOrders.ContainsKey(client))
+            if (client.Order.Products.Count == 0)
             {
                 Console.WriteLine("You have not ordered yet!");
             }
 
-            float totalPrice = _userOrders[client].Sum(burger => burger.Price);
+            ClientReport clientReport = new ClientReport();
+            clientReport.Visit(client.Order);
+
+            float totalPrice = clientReport.TotalPrice;
 
             if(Enum.IsDefined(typeof(EOfferType), client.OfferType))
             {
@@ -253,6 +249,8 @@ namespace RestaurantDP.Factory
 
                 totalPrice = (float) strategyContext.ApplyStrategy(client.OfferType);
             }
+
+            totalPrice = (float)Math.Round(totalPrice, 2);
 
             CashIn(totalPrice, GetMoneyType());
             GetTotalCash();
@@ -279,10 +277,8 @@ namespace RestaurantDP.Factory
 
             ApplicationMode.Instance.sendAction($"Client {client.Name} paid order: {totalPrice}");
 
-            List<BurgerDecorator> burgers = _userOrders[client];
+            List<BurgerDecorator> burgers = client.Order.Products;
             exporter.ExportFormatedData($"{client.Name}'s reciept", burgers, $"Total: {totalPrice}");
-
-            _userOrders.Remove(client);
         }
 
         public void DisplayBurgers()
@@ -353,8 +349,8 @@ namespace RestaurantDP.Factory
         private void GetTotalCash()
         {
             var sum = _cashRegisterCard.GetTotalCash() + _cashRegisterCoin.GetTotalCash() + _cashRegisterPaper.GetTotalCash();
-            Console.WriteLine($"Coin: {_cashRegisterCoin.GetTotalCash()}  Paper: {_cashRegisterPaper.GetTotalCash()}  Card: {_cashRegisterCard.GetTotalCash()}");
-            Console.WriteLine("Total cash = " + sum);
+            Console.WriteLine($"Coin: {Math.Round(_cashRegisterCoin.GetTotalCash(), 2)}  Paper: {Math.Round(_cashRegisterPaper.GetTotalCash(), 2)}  Card: {Math.Round(_cashRegisterCard.GetTotalCash(),2)}");
+            Console.WriteLine("Total cash = " + Math.Round(sum, 2));
         }
     }
 }

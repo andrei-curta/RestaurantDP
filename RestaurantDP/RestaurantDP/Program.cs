@@ -16,19 +16,25 @@ namespace RestaurantDP
     {
         static void Main(string[] args)
         {
-            ApplicationMode.Instance.DisplayOption = FileMessage.Instance;
-            
-            User u = new User();
-
-            Receptioner receptioner = new Receptioner();
-
-            User client = receptioner.GreetClient();
-
-            if (client != null)
+            try
             {
-                var waiter = new Waiter();
-                System.Console.WriteLine("<<Waiter arrives>>");
-                waiter.GetUserOption(client);
+                ApplicationMode.Instance.DisplayOption = FileMessage.Instance;
+
+                User u = new User();
+
+                Receptioner receptioner = new Receptioner();
+
+                User client = receptioner.GreetClient();
+
+                if (client != null)
+                {
+                    var waiter = new Waiter();
+                    System.Console.WriteLine("<<Waiter arrives>>");
+                    waiter.GetUserOption(client);
+                }
+            }catch
+            {
+
             }
         }
     }
